@@ -1,0 +1,21 @@
+apiVersion: apps/v1 # Defines and limits the types of objects can be used
+kind: Deployment # Runs and monitors identical pods (one or more) and update any changes. (Good for dev and production)
+metadata:
+  name: client-deployment # Name of the cluster
+spec:
+  replicas: 1 # Number of pods for the deployment
+  selector: # Selector used to identify pod objects inside the cluster and apply changes and updates.
+    matchLabels:
+      component: frontend # Tag to identify pods inside deployment object.
+  template: # Configuration for every pod in the deployment. Template to handle every replica.
+    metadata:
+      labels:
+        component: frontend
+    spec:
+      containers:
+        - name: client
+          image: stephengrider/multi-client
+          ports:
+            - containerPort: 3000
+
+# CONFIGURATION FILE TO CREATE A DEPLOYMENT OBJECT 

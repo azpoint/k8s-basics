@@ -1,12 +1,15 @@
-apiVersion: v1
-kind: Pod
+apiVersion: v1 # Defines and limits the types of objects can be used
+kind: Pod # Pods to run one or more closely related containers
 metadata:
-  name: client-pod
+  name: client-pod # Name of the Pod
   labels:
-    componet: web
+    component: frontend # Tag to identify the pod. Key and values are arbitrary but must match the selector exactly
 spec:
-  containers:
-    - name: client
-      image: stephengrider/multi-client
+  containers: # Containers inside the pod beign created
+    - name: client # Name of the container
+      image: stephengrider/multi-worker #Image to download from duckerhub
       ports:
-        - containerPort: 3000
+        - containerPort: 3000 # Port to expose the container to the kubernetes Node
+
+
+# CONFIGURATION FILE TO CREATE A POD OBJECT

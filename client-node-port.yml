@@ -1,12 +1,15 @@
-apiVersion: v1
-kind: Service
+apiVersion: v1 # Defines and limits the types of objects can be used
+kind: Service # Services sets up networking in a kubernetes Cluster
 metadata:
-  name: client-node-port
+  name: client-node-port # Name of the cluster
 spec:
-  type: NodePort
+  type: NodePort # Exposes a container to the outside world (for Dev only)
   ports:
-    - ports: 3050
-      targetPort: 3000
-      nodePort: 31515
-  selector:
-    component: web
+    - port: 3050 # Port another pod inside the cluster can use to acces de pod selected
+      targetPort: 3000 # Port of the container inside the pod selected
+      nodePort: 31515 # Port on the host machine to access the container (always between 30000 - 32767)
+  selector: # Selector to apply the configuration to a pod
+    component: frontend # Key and values are arbitrary but must match the selector exactly
+
+
+# CONFIGURATION FILE TO CREATE A CLUSTER WITH PODS INSIDE
