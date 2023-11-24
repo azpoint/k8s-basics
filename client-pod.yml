@@ -3,7 +3,7 @@ kind: Pod # Pods to run one or more closely related containers
 metadata:
   name: client-pod # Name of the Pod
   labels:
-    component: frontend # Tag to identify the pod. Key and values are arbitrary but must match the selector exactly
+    component: web # Tag to identify the pod. Key and values are arbitrary but must match the selector exactly
 spec:
   containers: # Containers inside the pod beign created
     - name: client # Name of the container
@@ -13,3 +13,5 @@ spec:
 
 
 # CONFIGURATION FILE TO CREATE A POD OBJECT
+
+# A POD IS AN OBJECT WITH ALL THE CONTIANERS NEEDED TO WORK CLOSELY, FROM 1 TO X
